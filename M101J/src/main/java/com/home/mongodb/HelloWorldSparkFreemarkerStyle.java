@@ -28,6 +28,8 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import static spark.Spark.halt;
+
 public class HelloWorldSparkFreemarkerStyle {
     public static void main(String[] args) {
         final Configuration configuration = new Configuration();
@@ -46,7 +48,7 @@ public class HelloWorldSparkFreemarkerStyle {
 
                     helloTemplate.process(helloMap, writer);
                 } catch (Exception e) {
-                   // halt(500);
+                    halt(500);
                     e.printStackTrace();
                 }
                 return writer;

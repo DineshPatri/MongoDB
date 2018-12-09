@@ -27,7 +27,11 @@ import static com.home.mongodb.m101j.util.Helpers.printJson;
 import static com.mongodb.client.model.Filters.gte;
 import static com.mongodb.client.model.Updates.inc;
 
-
+/**
+ * Explore more on builders like
+ * com.mongodb.client.model.Updates
+ * com.mongodb.client.model.Filters
+ */
 public class UpdateTest {
     public static void main(String[] args) {
         MongoClient client = new MongoClient();

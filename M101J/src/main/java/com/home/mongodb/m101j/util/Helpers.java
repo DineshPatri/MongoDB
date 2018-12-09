@@ -37,4 +37,15 @@ public class Helpers {
         // System.out.println();
         System.out.flush();
     }
+    public static void printJsonWithoutIndent(Document document) {
+        JsonWriter jsonWriter = new JsonWriter(new StringWriter(),
+                new JsonWriterSettings(JsonMode.SHELL, false));
+        new DocumentCodec().encode(jsonWriter, document,
+                EncoderContext.builder()
+                        .isEncodingCollectibleDocument(true)
+                        .build());
+        System.out.println(jsonWriter.getWriter());
+        // System.out.println();
+        System.out.flush();
+    }
 }

@@ -29,7 +29,7 @@ public class InsertTest {
         MongoClient client = new MongoClient();
         MongoDatabase db = client.getDatabase("course");
         MongoCollection<Document> coll = db.getCollection("insertTest");
-
+        System.out.println(db.getName());
         coll.drop();
 
         Document smith = new Document("name", "Smith")

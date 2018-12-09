@@ -31,6 +31,8 @@ import spark.Spark;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
 
+import static spark.Spark.halt;
+
 public class HelloWorldMongoDBSparkFreemarkerStyle {
     public static void main(String[] args)  {
         final Configuration configuration = new Configuration();
@@ -57,7 +59,7 @@ public class HelloWorldMongoDBSparkFreemarkerStyle {
 
                     helloTemplate.process(document, writer);
                 } catch (Exception e) {
-                    //halt(500);
+                    halt(500);
                     e.printStackTrace();
                 }
                 return writer;

@@ -51,17 +51,19 @@ public class FindWithSortSkipLimitTest {
         }
 
         Bson projection = fields(include("i", "j"), excludeId());
+        //Bson sort = new Document("i",1).append("j",-1);
         Bson sort = descending("j", "i");
 
         List<Document> all = collection.find()
                                        .projection(projection)
                                        .sort(sort)
-                                       .skip(20)
-                                       .limit(50)
+                                       .skip(20)//skip first 20 results, -20 will skip last 20 results
+                                       .limit(50)// limit to total of 50 results.
                                        .into(new ArrayList<Document>());
 
         for (Document cur : all) {
             printJson(cur);
         }
     }
+
 }

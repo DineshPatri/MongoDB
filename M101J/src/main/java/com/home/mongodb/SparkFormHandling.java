@@ -29,6 +29,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import static spark.Spark.halt;
+
 public class SparkFormHandling {
     public static void main(String[] args) {
         // Configure Freemarker
@@ -52,7 +54,7 @@ public class SparkFormHandling {
                     return writer;
 
                 } catch (Exception e) {
-                    //halt(500);
+                    halt(500);
                     return null;
                 }
             }
